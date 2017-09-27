@@ -34,6 +34,8 @@ $(".dynamicform_wrapper").on("afterInsert", function(item) {
         });
     });
 });
+//если удалил товар
+//пересчитать цены
 $(".dynamicform_wrapper").on("afterDelete", function(e) {
     Call_total()
 });
@@ -47,20 +49,19 @@ function getPrice(id, count, index) {
         dataType: 'json',
         data: {'id': id, 'count': count},
         success: function (data) {
-            if ($("#products-products_id").length){
+            if ($("#products-products_id").length){ //проверяем если есть такой елемент
                 $("#productstoinvoice-0-total_price").empty();
                 $("#productstoinvoice-0-total_price").val(data);
-
             }else{
                 $("#productstoinvoice-"+index+"-total_price").empty();
                 $("#productstoinvoice-"+index+"-total_price").val(data);
             }
-            Call_total()
+            Call_total() //вызвать для пересчета
         }
     });
 }
 
-
+//просчет цен
 function Call_total() {
     var summ = 0;
     var elem = $(".total-sum input");
@@ -71,4 +72,6 @@ function Call_total() {
 
 }
 
+
+//ну как-то так, готов учится и развиваться!)
 
