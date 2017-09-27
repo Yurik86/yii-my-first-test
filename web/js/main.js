@@ -1,5 +1,5 @@
 
-
+//как-то бредово тут все выглядит если не понравится я могу подумать и переделать есть разные варианты
 $("#products-products_id").change(function () {
     if($("#productstoinvoice-0-quantity").val() !== ''){
         var id = $(this).val();
@@ -14,7 +14,7 @@ $("#productstoinvoice-0-quantity").change(function () {
         getPrice(id, count )
     }
 });
-//пройтись и получить значения
+//если добавил товар пройтись и получить значения
 $(".dynamicform_wrapper").on("afterInsert", function(item) {
     $(".dynamicform_wrapper .product-item").each(function(index) {
 
